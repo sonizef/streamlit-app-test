@@ -25,6 +25,10 @@ df = pd.read_sql(query, engine)
 # Convertir la colonne 'date' en type datetime
 df['date'] = pd.to_datetime(df['date'])
 
+# Vérifiez le type de données et un extrait des données
+st.write(df.dtypes)
+st.write(df.head())
+
 # Configurez Streamlit
 st.title('Line Chart of Temperature and Humidity')
 
