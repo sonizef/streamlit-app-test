@@ -14,7 +14,7 @@ engine = create_engine(DATABASE_URL)
 
 # Définissez votre requête SQL
 query = """
-SELECT date, temperature, humidity
+SELECT TO_CHAR(date, 'YYYY-MM-DD HH:mm:SS') AS date, temperature, humidity
 FROM ping
 ORDER BY date
 """
