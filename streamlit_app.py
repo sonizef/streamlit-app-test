@@ -6,6 +6,6 @@ conn = st.connection("postgresql", type="sql")
 # Perform query.
 df = conn.query('SELECT * FROM ping;', ttl="10m")
 
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.temperature} has a :{row.humidity}:")
+chart_data = pd.DataFrame(df.itertuples(), columns=["temperature", "humidity"])
+
+st.line_chart(chart_data)
