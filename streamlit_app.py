@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Initialize connection.
 conn = st.connection("postgresql", type="sql")
