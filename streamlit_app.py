@@ -30,7 +30,7 @@ st.write(df.dtypes)
 st.write(df.head())
 
 # Configurez Streamlit
-st.title('Line Chart of Temperature and Humidity')
+st.title('Line Chart of Temperature and Humidity Arduino')
 
 # Créez le Line Chart
 st.line_chart(df.set_index('date'))
