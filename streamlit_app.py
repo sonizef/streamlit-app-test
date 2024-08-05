@@ -26,7 +26,6 @@ df = pd.read_sql(query, engine)
 df['date'] = pd.to_datetime(df['date'])
 
 # Vérifiez le type de données et un extrait des données
-st.write(df.dtypes)
 st.write(df.head())
 
 # Configurez Streamlit
