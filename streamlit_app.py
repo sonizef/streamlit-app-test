@@ -4,9 +4,18 @@ import pandas as pd
 # Initialize connection.
 conn = st.connection("postgresql", type="sql")
 
-# Perform query.
-df = conn.query('SELECT * FROM ping;', ttl="10m")
+# Définissez votre requête SQL
+query = """
+SELECT date, temperature, humidity
+FROM ping
+ORDER BY date
+"""
 
-chart_data = pd.DataFrame(df.itertuples(), columns=["temperature", "humidity"])
+# Exécutez la requête et chargez les résultats dans un DataFrame
+df = pd.read_sql(query, conn)
 
-st.line_chart(chart_data)
+# Configurez Streamlit
+st.title('Line Chart of Temperature and Humidity')
+
+# Créez le Line Chart
+st.line_chart(df.set_index('date'))
