@@ -22,6 +22,9 @@ ORDER BY date
 # Exécutez la requête et chargez les résultats dans un DataFrame
 df = pd.read_sql(query, engine)
 
+# Convertir la colonne 'date' en type datetime
+df['date'] = pd.to_datetime(df['date'])
+
 # Configurez Streamlit
 st.title('Line Chart of Temperature and Humidity')
 
