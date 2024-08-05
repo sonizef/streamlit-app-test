@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Obtenez les informations de connexion depuis secrets.toml
-db_config = st.secrets["postgresql"]
+db_config = st.secrets["connections.postgresql"]
 
 # Créez une URL de connexion pour SQLAlchemy
 DATABASE_URL = f"postgresql+psycopg2://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
